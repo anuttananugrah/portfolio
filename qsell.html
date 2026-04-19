@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QSell Case Study | Anugrah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { syne: ['Syne', 'sans-serif'], dm: ['DM Sans', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .gradient-text { background: linear-gradient(to right, #ec4899, #a855f7, #6366f1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  </style>
+</head>
+<body class="bg-slate-950 text-white font-dm selection:bg-pink-500/30">
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 backdrop-blur-md bg-black/40 border-b border-white/5 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="font-syne text-xl gradient-text hover:opacity-80 transition">ANUGRAH</a>
+      <a href="index.html" class="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        Back to Portfolio
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-32 pb-20 px-6 max-w-6xl mx-auto">
+    <div class="inline-block px-4 py-1 bg-pink-500/10 border border-pink-500/30 rounded-full text-xs font-bold text-pink-400 tracking-widest uppercase mb-6">Premium Marketplace</div>
+    <h1 class="text-4xl md:text-7xl font-syne font-extrabold mb-8">QSell</h1>
+    <p class="text-xl text-gray-400 max-w-3xl leading-relaxed">
+      A high-performance marketplace platform where users can trade products with confidence. Features include real-time messaging, AI-assisted search, and a premium boosting system for sellers.
+    </p>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="text-gray-500 text-xs uppercase tracking-wider mb-2">Role</div>
+        <div class="text-white font-medium">Full Stack Developer</div>
+      </div>
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="text-gray-500 text-xs uppercase tracking-wider mb-2">DB Engine</div>
+        <div class="text-white font-medium">PostgreSQL</div>
+      </div>
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="text-gray-500 text-xs uppercase tracking-wider mb-2">Media</div>
+        <div class="text-white font-medium">Cloudinary Storage</div>
+      </div>
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="text-gray-500 text-xs uppercase tracking-wider mb-2">Payment</div>
+        <div class="text-white font-medium">Razorpay Verified</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 px-6 max-w-6xl mx-auto space-y-32">
+    
+    <!-- TECH STACK -->
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="order-2 md:order-1 relative group">
+        <div class="absolute inset-0 bg-pink-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="glass-card p-8 rounded-3xl relative border border-white/10 overflow-hidden">
+          <pre class="text-xs text-pink-300 font-mono overflow-x-auto w-full">
+<code># Product Model with Boosting Logic
+class Product(models.Model):
+    title = models.CharField(max_length=200)
+    is_boosted = models.BooleanField(default=False)
+    boost_start = models.DateTimeField(null=True)
+    boost_expiry = models.DateTimeField(null=True)
+
+    def activate_boost(self):
+        now = timezone.now()
+        self.is_boosted = True
+        self.boost_expiry = now + timedelta(days=30)
+        self.save()
+
+    @property
+    def is_boost_active(self):
+        return self.is_boosted and self.boost_expiry > timezone.now()</code>
+          </pre>
+        </div>
+      </div>
+      <div class="order-1 md:order-2">
+        <h2 class="text-3xl font-syne font-bold mb-6">Built for Scale</h2>
+        <p class="text-gray-400 leading-relaxed mb-6">
+          QSell was designed with a focus on data integrity and performance. By leveraging PostgreSQL's advanced querying and Django's robust ORM, the platform handles complex filtering and search across thousands of listings effortlessly.
+        </p>
+        <ul class="space-y-4">
+          <li class="flex gap-3">
+            <span class="text-pink-400">01.</span>
+            <div>
+              <span class="text-white font-bold">Cloudinary Integration</span>
+              <p class="text-sm text-gray-500">Automated image optimization and global CDN delivery for lightning-fast marketplace browsing.</p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-pink-400">02.</span>
+            <div>
+              <span class="text-white font-bold">Real-time Messaging</span>
+              <p class="text-sm text-gray-500">Integrated buyer-seller chat system that facilitates faster deal closures and trust-building.</p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-pink-400">03.</span>
+            <div>
+              <span class="text-white font-bold">Monetization Engine</span>
+              <p class="text-sm text-gray-500">Sophisticated ad-boosting system integrated with Razorpay for revenue generation.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div>
+      <h2 class="text-3xl font-syne font-bold mb-12 text-center">Platform Highlights</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="glass-card p-10 rounded-3xl border border-white/5 hover:border-pink-500/30 transition-all group">
+          <div class="w-14 h-14 bg-pink-500/20 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:rotate-12 transition-transform">💬</div>
+          <h3 class="text-2xl font-bold mb-4">Unified Chat</h3>
+          <p class="text-gray-400 leading-relaxed">A seamless communication layer that allows buyers to inquire about products and negotiate prices in real-time, directly from the product page.</p>
+        </div>
+        <div class="glass-card p-10 rounded-3xl border border-white/5 hover:border-purple-500/30 transition-all group">
+          <div class="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:rotate-12 transition-transform">🚀</div>
+          <h3 class="text-2xl font-bold mb-4">Ad Boosting</h3>
+          <p class="text-gray-400 leading-relaxed">A powerful feature for sellers to increase visibility. Payments are processed via Razorpay, instantly promoting the ad for a 30-day period.</p>
+        </div>
+        <div class="glass-card p-10 rounded-3xl border border-white/5 hover:border-indigo-500/30 transition-all group">
+          <div class="w-14 h-14 bg-indigo-500/20 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:rotate-12 transition-transform">📊</div>
+          <h3 class="text-2xl font-bold mb-4">Admin Insights</h3>
+          <p class="text-gray-400 leading-relaxed">A custom-built administrative dashboard that provides detailed analytics on user registration, product trends, and pending reports.</p>
+        </div>
+        <div class="glass-card p-10 rounded-3xl border border-white/5 hover:border-cyan-500/30 transition-all group">
+          <div class="w-14 h-14 bg-cyan-500/20 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:rotate-12 transition-transform">📱</div>
+          <h3 class="text-2xl font-bold mb-4">Responsive UX</h3>
+          <p class="text-gray-400 leading-relaxed">Designed with a "Mobile-First" approach, ensuring that listing and buying products is as easy on a smartphone as it is on a desktop.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERFACE SHOWCASE -->
+    <div>
+      <h2 class="text-3xl font-syne font-bold mb-12 text-center">Interface Showcase</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="group relative overflow-hidden rounded-3xl border border-white/10 glass-card aspect-video">
+          <img src="images/qsell_1.png" alt="QSell Landing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-sm font-medium text-white">Marketplace Hero & Search</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="group relative overflow-hidden rounded-3xl border border-white/10 glass-card aspect-video">
+          <img src="images/qsell_2.png" alt="Product Detail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-sm font-medium text-white">Product Detail View</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="group relative overflow-hidden rounded-3xl border border-white/10 glass-card aspect-video">
+          <img src="images/qsell_3.png" alt="Categories Section" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-sm font-medium text-white">Category Grid Navigation</p>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="group relative overflow-hidden rounded-3xl border border-white/10 glass-card aspect-video">
+          <img src="images/qsell_4.png" alt="Latest Arrivals" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-sm font-medium text-white">Latest Product Listings</p>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="group relative overflow-hidden rounded-3xl border border-white/10 glass-card aspect-video">
+          <img src="images/qsell_5.png" alt="Negotiation UI" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-sm font-medium text-white">Buyer-Seller Interaction</p>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="group relative overflow-hidden rounded-3xl border border-white/10 glass-card aspect-video">
+          <img src="images/qsell_6.png" alt="Custom Admin Panel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-sm font-medium text-white">Custom Administrative Dashboard</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOSING -->
+    <div class="glass-card p-12 rounded-[2.5rem] border border-white/5 bg-gradient-to-br from-pink-500/5 to-transparent text-center">
+      <h2 class="text-3xl font-syne font-bold mb-6">Future-Proofing the Marketplace</h2>
+      <p class="text-gray-400 max-w-3xl mx-auto leading-relaxed">
+        Beyond just a listing site, QSell incorporates security features like email OTP verification and report-tracking to ensure a safe environment for all community members. The modular codebase allows for easy integration of future features like bidding systems or location-based recommendations.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-24 border-t border-white/5 bg-slate-950">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-syne font-bold mb-4">Let's build something <span class="gradient-text">extraordinary</span> together.</h2>
+      <p class="text-gray-400 mb-10 max-w-lg mx-auto">I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+      
+      <div class="flex flex-wrap justify-center gap-6 mb-16">
+        <a href="mailto:anuttananugrah@gmail.com" class="flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+          <span class="text-indigo-400 group-hover:scale-110 transition-transform">✉</span>
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/anugrah-c/" class="flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+          <span class="text-blue-400 group-hover:scale-110 transition-transform">in</span>
+          LinkedIn
+        </a>
+        <a href="https://github.com/anuttananugrah" class="flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+          <span class="text-gray-300 group-hover:scale-110 transition-transform">⌨</span>
+          GitHub
+        </a>
+      </div>
+
+      <div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="font-syne text-xl tracking-tighter font-bold uppercase">ANUGRAH</div>
+        <p class="text-gray-500 text-[10px] tracking-[0.2em] uppercase font-medium">&copy; Full Stack Developer</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

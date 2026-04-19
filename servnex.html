@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServNex Case Study | Anugrah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { syne: ['Syne', 'sans-serif'], dm: ['DM Sans', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .gradient-text { background: linear-gradient(to right, #6366f1, #22d3ee, #f472b6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  </style>
+</head>
+<body class="bg-slate-950 text-white font-dm selection:bg-indigo-500/30">
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 backdrop-blur-md bg-black/40 border-b border-white/5 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="font-syne text-xl gradient-text hover:opacity-80 transition">ANUGRAH</a>
+      <a href="index.html" class="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        Back to Portfolio
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-32 pb-20 px-6 max-w-6xl mx-auto">
+    <div class="inline-block px-4 py-1 bg-indigo-500/10 border border-indigo-500/30 rounded-full text-xs font-bold text-indigo-400 tracking-widest uppercase mb-6">Commercial Booking Engine</div>
+    <h1 class="text-4xl md:text-7xl font-syne font-extrabold mb-8">ServNex</h1>
+    <p class="text-xl text-gray-400 max-w-3xl leading-relaxed">
+      A comprehensive multi-service booking ecosystem designed to streamline reservations for hotels and restaurants, handling everything from secure payments to real-time waitlist management.
+    </p>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="text-gray-500 text-xs uppercase tracking-wider mb-2">Role</div>
+        <div class="text-white font-medium">Lead Developer</div>
+      </div>
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="text-gray-500 text-xs uppercase tracking-wider mb-2">Platform</div>
+        <div class="text-white font-medium">Web (Responsive)</div>
+      </div>
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="text-gray-500 text-xs uppercase tracking-wider mb-2">Stack</div>
+        <div class="text-white font-medium">Django & React</div>
+      </div>
+      <div class="glass-card p-6 rounded-2xl">
+        <div class="text-gray-500 text-xs uppercase tracking-wider mb-2">Timeline</div>
+        <div class="text-white font-medium">Ongoing Project</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 px-6 max-w-6xl mx-auto space-y-32">
+    
+    <!-- TECH STACK -->
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-3xl font-syne font-bold mb-6">Technical Architecture</h2>
+        <p class="text-gray-400 leading-relaxed mb-6">
+          ServNex utilizes a modern decoupled architecture. The Django REST Framework backend serves as a robust engine handling complex business logic, while the React frontend provides a seamless, app-like experience for users.
+        </p>
+        <ul class="space-y-4">
+          <li class="flex gap-3">
+            <span class="text-indigo-400">01.</span>
+            <div>
+              <span class="text-white font-bold">Google OAuth 2.0</span>
+              <p class="text-sm text-gray-500">Secure and frictionless social authentication for improved user retention.</p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-indigo-400">02.</span>
+            <div>
+              <span class="text-white font-bold">Razorpay API Integration</span>
+              <p class="text-sm text-gray-500">End-to-end payment lifecycle management including signature verification and failure reporting.</p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-indigo-400">03.</span>
+            <div>
+              <span class="text-white font-bold">Signal-based Notifications</span>
+              <p class="text-sm text-gray-500">Automated triggers for booking confirmations, cancellations, and payment reminders.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="relative group">
+        <div class="absolute inset-0 bg-indigo-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="glass-card p-8 rounded-3xl relative border border-white/10">
+          <pre class="text-xs text-indigo-300 font-mono overflow-x-auto">
+<code>// Razorpay Signature Verification Flow
+def verify_payment(request):
+    payment_id = request.data.get('payment_id')
+    order_id = request.data.get('order_id')
+    signature = request.data.get('signature')
+    
+    params_dict = {
+        'razorpay_order_id': order_id,
+        'razorpay_payment_id': payment_id,
+        'razorpay_signature': signature
+    }
+    
+    try:
+        client.utility.verify_payment_signature(params_dict)
+        # Handle success...
+    except SignatureVerificationError:
+        # Handle failure...</code>
+          </pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div>
+      <h2 class="text-3xl font-syne font-bold mb-12 text-center">Core Features</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-indigo-500/30 transition-all group">
+          <div class="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">🛎</div>
+          <h3 class="text-xl font-bold mb-4">Smart Booking</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Intelligent availability engine that prevents overbooking and manages table/room assignments dynamically.</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-cyan-500/30 transition-all group">
+          <div class="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">📉</div>
+          <h3 class="text-xl font-bold mb-4">Real-time Waitlist</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Dynamic queue management for high-traffic restaurants, giving users accurate wait-time estimates via SMS/Email.</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-pink-500/30 transition-all group">
+          <div class="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">🔒</div>
+          <h3 class="text-xl font-bold mb-4">Financial Security</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Strict adherence to payment security protocols, ensuring every transaction is verified and logged for auditability.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERFACE SHOWCASE -->
+    <div>
+      <h2 class="text-3xl font-syne font-bold mb-12 text-center">Interface Showcase</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="group relative overflow-hidden rounded-3xl border border-white/10 glass-card aspect-video">
+          <img src="images/servnex_hero.webp" alt="ServNex Dashboard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-sm font-medium text-white">Central Booking Dashboard</p>
+          </div>
+        </div>
+        <div class="group relative overflow-hidden rounded-3xl border border-white/10 glass-card aspect-video">
+          <img src="images/servnex_booking.webp" alt="Booking Process" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-sm font-medium text-white">Seamless Booking Flow</p>
+          </div>
+        </div>
+        <div class="group relative overflow-hidden rounded-3xl border border-white/10 glass-card aspect-video">
+          <img src="images/servnex_waitlist.webp" alt="Waitlist Management" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+            <p class="text-sm font-medium text-white">Real-time Waitlist & Queue</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHALLENGES -->
+    <div class="glass-card p-12 rounded-[2.5rem] border border-white/5 bg-gradient-to-br from-indigo-500/5 to-transparent">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-syne font-bold mb-6 text-white leading-tight">Overcoming the "Payment Mismatch" Challenge</h2>
+        <p class="text-gray-400 leading-relaxed">
+          One of the biggest hurdles was ensuring data consistency when users cancelled payments mid-process. I implemented a robust "Post-Payment Verification" system and centralized failure logging to ensure that no booking remained in a "Ghost" state, providing clear feedback to users even when transactions failed.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-24 border-t border-white/5 bg-slate-950">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-syne font-bold mb-4">Let's build something <span class="gradient-text">extraordinary</span> together.</h2>
+      <p class="text-gray-400 mb-10 max-w-lg mx-auto">I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+      
+      <div class="flex flex-wrap justify-center gap-6 mb-16">
+        <a href="mailto:anuttananugrah@gmail.com" class="flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+          <span class="text-indigo-400 group-hover:scale-110 transition-transform">✉</span>
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/anugrah-c/" class="flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+          <span class="text-blue-400 group-hover:scale-110 transition-transform">in</span>
+          LinkedIn
+        </a>
+        <a href="https://github.com/anuttananugrah" class="flex items-center gap-2 text-sm font-medium px-6 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group">
+          <span class="text-gray-300 group-hover:scale-110 transition-transform">⌨</span>
+          GitHub
+        </a>
+      </div>
+
+      <div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="font-syne text-xl tracking-tighter font-bold uppercase">ANUGRAH</div>
+        <p class="text-gray-500 text-[10px] tracking-[0.2em] uppercase font-medium">&copy; Full Stack Developer</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
